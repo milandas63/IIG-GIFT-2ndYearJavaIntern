@@ -24,6 +24,12 @@ public class AlphaPyramid {
 			System.out.println();
 			s--;
 		}
+		System.out.println();
+		int n = new Integer(25);
+		Integer in = 25;
+		long number = 2534533443332334L;
+		float deci = 33.45F;
+		
 	}
 
 }
