@@ -108,3 +108,9 @@
             Step-4: Create a ResultSet object
             Step-5: Manipulate ResultSet
             Step-6: Close ResultSet, Statement, Connection
+
+    =    ASSIGNMENT:
+         Create a database in MySQL giving the name "gift_4".
+         Create a table in the name "colleges".
+         Insert data into the table.
+         Write a program in Java to connect the above database and table and show the data on the screen.
