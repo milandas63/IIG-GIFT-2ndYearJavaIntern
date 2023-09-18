@@ -1,0 +1,75 @@
+public class ValidateAgeForVoting {
+
+    public static class AgeException extends Exception {
+        public AgeException(String message) {
+            super(message);
+        }
+    }
+
+    
+    public static class InvalidAgeException extends AgeException {
+        public InvalidAgeException(String string) {
+            super("Age cannot be negative or zero.");
+        }
+    }
+
+        public static class NegativeAgeException extends InvalidAgeException {
+        public NegativeAgeException() {
+            super("Age cannot be  on negative.");
+        }
+    }
+
+    
+    public static class ZeroAgeException extends InvalidAgeException {
+        public ZeroAgeException() {
+            super("Age cannot be on zero.");
+        }
+    }
+
+   
+    public static class AgeCeilingException extends AgeException {
+        public AgeCeilingException(String message) {
+            super(message);
+        }
+    }
+
+    public static class TooYoungAgeException extends AgeCeilingException {
+        public TooYoungAgeException() {
+            super(" Below 18 are not allowed to vote.");
+        }
+    }
+
+    
+    public static class TooOldAgeException extends AgeCeilingException {
+        public TooOldAgeException() {
+            super(" Above 80 are not allowed to vote.");
+        }
+    }
+
+    public static void checkVoterEligibility(int age) throws AgeException {
+        if (age < 0) {
+            throw new NegativeAgeException();
+        } else if (age == 0) {
+            throw new ZeroAgeException();
+        } else if (age < 18) {
+            throw new TooYoungAgeException();
+        } else if (age > 80) {
+            throw new TooOldAgeException();
+        } else {
+            System.out.println("Age: "+age+" - You are eligible to vote.");
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] ages = {24, 35, 15, 54, 11, 71, 88, 0, 63, 19, -33, 45, 28, 91, -31, 75};
+
+        for (int age : ages) {
+            try {
+                checkVoterEligibility(age);
+            } catch (AgeException e) {
+                System.out.println("Age: " + age + " - " + e.getMessage());
+            }
+        }
+    }
+}
+
