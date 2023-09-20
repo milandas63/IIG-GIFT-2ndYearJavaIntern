@@ -1,0 +1,55 @@
+MariaDB [(none)]> CREATE DATABASE gift_4;
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| gift_3             |
+| gift_4             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+7 rows in set (0.002 sec)
+MariaDB [(none)]> use gift_4;
+Database changed
+MariaDB [gift_4]> show tables;
+Empty set (0.063 sec)
+CREATE TABLE IF NOT EXISTS colleges(
+    ->                 slno            INT(6)          NOT NULL AUTO_INCREMENT,
+    ->                 name            VARCHAR(50)     NOT NULL,
+    ->                 regd_no         INT(12)         NOT NULL,
+    ->                 PRIMARY KEY(slno)
+    ->             );
+Query OK, 0 rows affected, 1 warning (0.002 sec)
+ INSERT INTO colleges(slno,name,regd_no) VALUES (1,'Shubhojit Bhattacharya',2101298160);
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [gift_4]> select *from colleges;
++------+------------------------+------------+
+| slno | name                   | regd_no    |
++------+------------------------+------------+
+|    1 | Shubhojit Bhattacharya | 2101298160 |
++------+------------------------+------------+
+1 row in set (0.002 sec)
+ INSERT INTO colleges(slno,name,regd_no) VALUES (2,'Suraj Dalai',2101298184);
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [gift_4]> show tables;
++------------------+
+| Tables_in_gift_4 |
++------------------+
+| colleges         |
++------------------+
+1 row in set (0.003 sec)
+MariaDB [gift_4]> select*from colleges;
++------+------------------------+------------+
+| slno | name                   | regd_no    |
++------+------------------------+------------+
+|    1 | Shubhojit Bhattacharya | 2101298160 |
+|    2 | Suraj Dalai            | 2101298184 |
++------+------------------------+------------+
+2 rows in set (0.005 sec)
