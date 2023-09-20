@@ -33,4 +33,15 @@
                    Stock Adjustment
 
 
+    =   ASSIGNMENT:
+        >   Create a user interface in Java Swing to enter data into the student's table.
+            Column names:
+            1)  slno
+            2)  name
+            3)  regd_no
+
+        >   Create a button in the name "Submit". On clicking on the Submit button,
+            the data is inserted into the db-table.
+
+        >   There will be an Exit button, to come out of the application.
 
