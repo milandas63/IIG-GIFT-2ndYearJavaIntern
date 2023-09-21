@@ -216,6 +216,9 @@ CREATE TABLE IF NOT EXISTS product(
 INSERT INTO product VALUES
     (001, 'Agithromicin DS', 5, 3, NULL),
     (002, 'DX Paracetamol',  5, 4, NULL);
+INSERT INTO product VALUES
+    (003, 'Strepcil DX', 5, 3, NULL),
+    (004, 'Dolo 650',  5, 4, NULL);
 
 
 #######################
@@ -277,3 +280,9 @@ CREATE TABLE IF NOT EXISTS transaction_dt(
     PRIMARY KEY(tran_detail_id)
 );
 
+SELECT p.product_id,p.product_desc,m.mfg_desc,k.pack_desc FROM product AS p
+LEFT JOIN manufacturer AS m ON p.mfg_id=m.mfg_id
+LEFT JOIN packing AS k ON p.pack_id=k.pack_id;
+
+
+SELECT p.product_id,p.product_desc,m.mfg_desc,k.pack_desc FROM product AS p LEFT JOIN manufacturer AS m ON p.mfg_id=m.mfg_id LEFT JOIN packing AS k ON p.pack_id=k.pack_id;
