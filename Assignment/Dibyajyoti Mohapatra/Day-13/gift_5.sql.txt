@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXIST GIFT_6;
+CREATE DATABASE GIFT_6;
+USE GIFT_6;
+CREATE TABLE IF NOT EXISTS colleges(
+                slno_id         INT(6)          NOT NULL AUTO_INCREMENT,
+                clg_name        VARCHAR(50)     NOT NULL,
+                address         VARCHAR(50),
+                PRIMARY KEY(slno_id)
+            );
+INSERT INTO colleges VALUES (1,'GIFT', 'GANGAPADA'),
+                            (2,'GITA', 'MADANPUR'),
+                            (3,'GEC', 'RAGHUNATHPUR'),
+                            (4,'GIET', 'GHANGAPATANA');
