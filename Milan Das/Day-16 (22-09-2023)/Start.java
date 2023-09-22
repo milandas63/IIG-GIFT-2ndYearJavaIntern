@@ -1,15 +1,18 @@
 package com.main;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -38,7 +41,7 @@ public class Start extends JFrame {
 				JMenuItem mnuActivities = new JMenuItem("Activities");
 				mnuProduct.addActionListener(new ActionListener() {
 					@Override
-					public void actionPerformed(ActionEvent arg0) {
+					public void actionPerformed(ActionEvent ae) {
 						System.out.println("Product");
 					}
 				});
@@ -77,6 +80,7 @@ public class Start extends JFrame {
 
 		desktop = new JDesktopPane();
 		split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonPanel(), desktop);
+		split.setDividerLocation(250);
 		this.add(split, BorderLayout.CENTER);
 		
 		
@@ -86,26 +90,66 @@ public class Start extends JFrame {
 	}
 
 	private JPanel buttonPanel() {
-		JPanel pnlButtons = new JPanel(new GridLayout(10,1));
-		JButton btnProduct = new JButton("Product");
+		JPanel pnlButtons = new JPanel(new GridLayout(15,1));
+		JLabel lblMaster = new JLabel("MASTER", JLabel.CENTER);
+		lblMaster.setBorder(BorderFactory.createRaisedBevelBorder());
+		lblMaster.setBackground(Color.lightGray);
+		lblMaster.setForeground(Color.blue);
+		lblMaster.setOpaque(true);
 		JButton btnManufacturer = new JButton("Manufacturer");
+		JButton btnProduct = new JButton("Product");
 		JButton btnVendor = new JButton("Vendor");
 		JButton btnCustomer = new JButton("Customer");
-		pnlButtons.add(btnProduct);
+		JButton btnActivity = new JButton("Activity");
+		pnlButtons.add(lblMaster);
 		pnlButtons.add(btnManufacturer);
+		pnlButtons.add(btnProduct);
 		pnlButtons.add(btnVendor);
 		pnlButtons.add(btnCustomer);
+		pnlButtons.add(btnActivity);
+		
+		JLabel lblTransaction = new JLabel("TRANSACTION", JLabel.CENTER);
+		lblTransaction.setBorder(BorderFactory.createRaisedBevelBorder());
+		lblTransaction.setBackground(Color.lightGray);
+		lblTransaction.setForeground(Color.blue);
+		lblTransaction.setOpaque(true);
+		JButton btnTransaction = new JButton("Stock Transaction");
+		pnlButtons.add(lblTransaction);
+		pnlButtons.add(btnTransaction);
+		
 		btnProduct.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
 				JInternalFrame iProduct = new JInternalFrame("Product");
+				iProduct.setLayout(new BorderLayout(5,5));
 				iProduct.setResizable(true);
 				iProduct.setClosable(true);
 				iProduct.setIconifiable(true);
 				iProduct.setMaximizable(true);
 
+				JPanel pnlBottom = new JPanel(new GridLayout(1,6));
+				iProduct.add(pnlBottom, BorderLayout.SOUTH);
+				JButton btnAdd = new JButton("Add");
+				JButton btnEdit = new JButton("Edit");
+				JButton btnDelete = new JButton("Delete");
+				JButton btnSearch = new JButton("Search");
+				JButton btnPrint = new JButton("Print");
+				JButton btnExit = new JButton("Exit");
+				btnExit.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						iProduct.dispose();
+					}
+				});
+				pnlBottom.add(btnAdd);
+				pnlBottom.add(btnEdit);
+				pnlBottom.add(btnDelete);
+				pnlBottom.add(btnSearch);
+				pnlBottom.add(btnPrint);
+				pnlBottom.add(btnExit);
+				
 				desktop.add(iProduct);
-				iProduct.setBounds(0,0,600,400);
+				iProduct.setBounds(0,0,800,450);
 				iProduct.setVisible(true);
 			}
 		});
