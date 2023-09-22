@@ -29,6 +29,9 @@ public class Start extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.setTitle("Stock Accounting");
 		this.setIconImage(new ImageIcon("project-icon.png").getImage());
+
+		JToolBar toolBar = this.addToolBar();
+		this.add(toolBar, BorderLayout.NORTH);
 		
 		JMenuBar mbar = new JMenuBar();
 		this.setJMenuBar(mbar);
@@ -52,7 +55,7 @@ public class Start extends JFrame {
 				mnuMaster.add(mnuCustomer);
 				mnuMaster.addSeparator();
 				mnuMaster.add(mnuActivities);
-			
+
 			JMenu mnuTran = new JMenu("Transaction");
 			mbar.add(mnuTran);
 				JMenuItem mnuStockEntry = new JMenuItem("Stock Entry");
@@ -76,19 +79,29 @@ public class Start extends JFrame {
 			JMenu mnuExit = new JMenu("Exit");
 			mbar.add(mnuExit);
 
-		JToolBar toolBar = new JToolBar();
-
 		desktop = new JDesktopPane();
 		split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonPanel(), desktop);
 		split.setDividerLocation(250);
 		this.add(split, BorderLayout.CENTER);
-		
-		
+
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(25,25,1300,680);
 		this.setVisible(true);
 	}
 
+	private JToolBar addToolBar() {
+		JToolBar tb = new JToolBar();
+		JButton btnExit = new JButton(new ImageIcon("exit.png"));
+		btnExit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		tb.add(btnExit);
+		return tb;
+	}
+	
 	private JPanel buttonPanel() {
 		JPanel pnlButtons = new JPanel(new GridLayout(15,1));
 		JLabel lblMaster = new JLabel("MASTER", JLabel.CENTER);
