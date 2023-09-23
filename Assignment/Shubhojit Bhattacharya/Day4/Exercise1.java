@@ -1,4 +1,3 @@
-package Day4;
 import java.util.Scanner;
 
 public class Exercise1 {
@@ -52,3 +51,4 @@ public class Exercise1 {
         return repeatedCharacter;
     }
 }
+
