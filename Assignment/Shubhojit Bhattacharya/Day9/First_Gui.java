@@ -1,6 +1,5 @@
-package Day9;
 
-import java.io.BufferedWriter;
+    import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -98,3 +97,4 @@ class MyClass implements ActionListener {
 	}
 	
 }
+
