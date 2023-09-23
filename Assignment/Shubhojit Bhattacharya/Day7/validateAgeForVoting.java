@@ -1,5 +1,5 @@
-package Day7;
-/*
+
+    /*
  CASE STUDY
         In a certain country, the cizitens are provided with voter id cards.
         The rules are, citizens below the age of 18 and above the age of 80 are 
@@ -98,5 +98,6 @@ public class validateAgeForVoting {
         }
     }
 }
+
 
 
