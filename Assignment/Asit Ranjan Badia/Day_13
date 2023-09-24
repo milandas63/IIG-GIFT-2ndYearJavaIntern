@@ -1,3 +1,4 @@
+//java file 
 package com.product;
 
 import java.sql.Connection;
@@ -50,3 +51,15 @@ public class DbExample {
 
 }
 
+//sql file 
+create database gift_4;
+  CREATE TABLE IF NOT EXISTS colleges(
+                slno            INT(6)          NOT NULL AUTO_INCREMENT,
+                name            VARCHAR(50)     NOT NULL,
+                PRIMARY KEY(slno)
+            );
+ INSERT INTO colleges VALUES(
+				(1,'GIFT '),
+				(2,'NIT ROURKELA')
+				(3,'IIIT BHUBANESWAR')		);
+select * from colleges;
