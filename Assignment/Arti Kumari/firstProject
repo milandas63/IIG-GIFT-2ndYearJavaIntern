@@ -1,0 +1,145 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Equipment {
+    private String name;
+    private boolean isUnderMaintenance;
+
+    public Equipment(String name) {
+        this.name = name;
+        this.isUnderMaintenance = false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isUnderMaintenance() {
+        return isUnderMaintenance;
+    }
+
+    public void markUnderMaintenance() {
+        isUnderMaintenance = true;
+    }
+
+    public void markAvailable() {
+        isUnderMaintenance = false;
+    }
+}
+
+class MaintenanceTask {
+    private Equipment equipment;
+    private String description;
+
+    public MaintenanceTask(Equipment equipment, String description) {
+        this.equipment = equipment;
+        this.description = description;
+    }
+
+    public Equipment getEquipment() {
+        return equipment;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+}
+
+class MaintenanceTeam {
+    private String name;
+    private List<MaintenanceTask> tasks;
+
+    public MaintenanceTeam(String name) {
+        this.name = name;
+        this.setTasks(new ArrayList<>());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void assignTask(MaintenanceTask task) {
+        getTasks().add(task);
+    }
+
+    public void completeTask(MaintenanceTask task) {
+        if (getTasks().contains(task)) {
+            getTasks().remove(task);
+            task.getEquipment().markAvailable();
+            System.out.println(name + " completed maintenance task: " + task.getDescription());
+        }
+    }
+
+	public List<MaintenanceTask> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<MaintenanceTask> tasks) {
+		this.tasks = tasks;
+	}
+}
+
+public class Maintanence {
+    private List<Equipment> equipmentList;
+    private List<MaintenanceTeam> maintenanceTeams;
+
+    public Maintanence() {
+        equipmentList = new ArrayList<>();
+        maintenanceTeams = new ArrayList<>();
+    }
+
+    public void addEquipment(Equipment equipment) {
+        equipmentList.add(equipment);
+    }
+
+    public void addMaintenanceTeam(MaintenanceTeam team) {
+        maintenanceTeams.add(team);
+    }
+
+    public void submitMaintenanceTask(Equipment equipment, String description) {
+        if (equipment.isUnderMaintenance()) {
+            System.out.println("Equipment " + equipment.getName() + " is already under maintenance.");
+        } else {
+            MaintenanceTask task = new MaintenanceTask(equipment, description);
+            equipment.markUnderMaintenance();
+            assignTaskToAvailableTeam(task);
+        }
+    }
+
+    private void assignTaskToAvailableTeam(MaintenanceTask task) {
+        for (MaintenanceTeam team : maintenanceTeams) {
+            if (team.getName().equals("Default Maintenance Team")) {
+                team.assignTask(task);
+                System.out.println("Maintenance task assigned to " + team.getName() + ": " + task.getDescription());
+                return;
+            }
+        }
+        System.out.println("No available maintenance teams for task: " + task.getDescription());
+    }
+
+    public static void main(String[] args) {
+        Maintanence companySystem = new Maintanence();
+
+        // Create equipment
+        Equipment machine1 = new Equipment("Machine 1");
+        Equipment machine2 = new Equipment("Machine 2");
+
+        // Create maintenance teams
+        MaintenanceTeam defaultTeam = new MaintenanceTeam("Default Maintenance Team");
+        MaintenanceTeam emergencyTeam = new MaintenanceTeam("Emergency Maintenance Team");
+
+        // Add equipment and teams to the system
+        companySystem.addEquipment(machine1);
+        companySystem.addEquipment(machine2);
+        companySystem.addMaintenanceTeam(defaultTeam);
+        companySystem.addMaintenanceTeam(emergencyTeam);
+
+        // Submit maintenance tasks
+        companySystem.submitMaintenanceTask(machine1, "Replace worn-out parts");
+        companySystem.submitMaintenanceTask(machine2, "Fix electrical issue");
+
+        // Complete tasks
+        MaintenanceTask task = defaultTeam.getTasks().get(0);
+        defaultTeam.completeTask(task);
+    }
+}
