@@ -61,23 +61,18 @@ public class First_Gui {
 	}
 
     public void Write_to_file(String User,String Pass){
-        String fileName = "Day9/Data.txt"; // Specify the name of your file
+        String fileName = "Day9/Data.txt"; 
 
         try {
-            // Create a FileWriter with the specified file name and set append mode to true
             FileWriter fileWriter = new FileWriter(fileName, true);
             
-            // Create a BufferedWriter for efficient writing
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            // Content to be added to the file
             String contentToAdd = User+" / "+Pass;
 
-            // Write the content to the file
             bufferedWriter.write(contentToAdd);
             bufferedWriter.newLine(); // Add a newline character if needed
 
-            // Close the buffered writer
             bufferedWriter.close();
 
             System.out.println("Content added to the file successfully.");
