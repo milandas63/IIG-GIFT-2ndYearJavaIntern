@@ -1,4 +1,4 @@
-package com.regapp.model;
+erpackage com.regapp.model;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -58,7 +58,7 @@ public class RegistrationApp {
         String password = new String(passwordChars);
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/intern", "root", "Rashmi@123");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/intern", "root", "soumya@123");
             PreparedStatement statement = conn.prepareStatement("INSERT INTO users (name, email, mobile, password) VALUES (?, ?, ?, ?)");
             statement.setString(1, name);
             statement.setString(2, email);
