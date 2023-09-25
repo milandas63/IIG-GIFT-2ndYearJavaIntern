@@ -201,6 +201,7 @@ Group-8:
        iv)  Rasmi Ranjan Panda 
         v)  Aditya Das
        vi)  Biswarupa Nayak
+      vii)  Soumya Ranjan Behera
 
 Group-9:
     =   Assign Previleges
