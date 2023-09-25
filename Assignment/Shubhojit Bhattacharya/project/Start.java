@@ -164,10 +164,10 @@ public class Start extends JFrame {
 			}
 		});
 
-        btnProduct.addActionListener(new ActionListener() {
+       btnManufacturer.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
-				new ProductMaintenance(desktop, conn);
+				new ManufacturerMaintenance(desktop, conn);
 			}
 		});
 
