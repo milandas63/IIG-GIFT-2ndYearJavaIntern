@@ -210,3 +210,12 @@ Group-9:
        iv)  Lalita Kumar Mohanty 
         v)  Priyansu Ranjan Samantaray
        vi)  Priyabrat Behera 
+
+Group-10:
+    =   Stock Transaction Maintenance
+        i)  Devish Raj
+       ii)  Goutam Kumar Giri 
+      iii)  Mrinmay Kumar Paul 
+       iv)  Namanshu Kumar
+        v)  Prabhat 
+       vi)  Rajni Kant 
