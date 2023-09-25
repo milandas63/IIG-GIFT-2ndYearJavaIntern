@@ -1,0 +1,212 @@
+Required User Interfaces:
+ 1. Create User                                     2           user
+ 2. Action Master Maintenance                       2           user_action
+ 3. Assign Privileges to User                       1           privilege
+ 4. User Login                              HCM     1    Now    user_login, login_tracker
+ 5. Vendor Master Maintenance               AL      2    Now    vendor
+ 6. Customer Master Maintenance             MM      2    Now    customer
+ 7. Manufacturer Master Maintenance         SP      2    Now    manufacturer
+ 8. Product Master Maintenance              AL      2    Now    product
+ 9. Transaction Type Master Maintenance             2           transaction_type
+10. Transaction Entry                       AM-PM   3    Now    transaction_hr, transaction_dt
+
+
+    +---------------------------------------------------------------------------+
+    | @ Login                                                                   |
+    +---------------------------------------------------------------------------+
+    |                                                                           |
+    |                                                                           |
+    |                       S T O C K   A C C O U N T I N G                     |
+    |                                                                           |
+    |                   +-------------------------------------+                 |
+    |                   |                                     |                 |
+    |                   |                                     |                 |
+    |                   |       Username ||||||||||||||||     |                 |
+    |                   |                                     |                 |
+    |                   |       Password ||||||||||||||||     |                 |
+    |                   |                                     |                 |
+    |                   |         +--------+  +--------+      |                 |
+    |                   |         | Submit |  |  Exit  |      |                 |
+    |                   |         +--------+  +--------+      |                 |
+    |                   |                                     |                 |
+    |                   +-------------------------------------+                 |
+    |                                                                           |
+    |                                                                           |
+    |                                                                           |
+    |                                                                           |
+    +---------------------------------------------------------------------------+
+
+
++--------+--------------------+----------+------+
+| mfg_id | mfg_desc           | mfg_abbr | del  |
++--------+--------------------+----------+------+
+|      1 | Cipla              | CP       | NULL |
+|      2 | Pfizer             | PF       | NULL |
+|      3 | Cadila             | CD       | NULL |
+|      4 | Dr Reddy           | DR       | NULL |
+|      5 | Johnson & Johnson. | JJ       | NULL |
++--------+--------------------+----------+------+
+
+    +-----------------------------------------------------------+
+    | @ Manufacturer                                            |
+    +-----------------------------------------------------------+
+    |  ID  | MANUFACTURER-NAME           | MANUFACTURER-ABBR    |
+    +-----------------------------------------------------------+
+    |   1  | Cipla                       |      CP              |
+    |   2  | Pfizer                      |      PF              |
+    |   3  | Cadila                      |      CD              |
+    |   4  | Dr Reddy                    |      DR              |
+    |   5  | Johnson & Johnson           |      JJ              |
+    |   6  |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    |      |                             |                      |
+    +--------------+-------+----------+----------+----------+---------+---------+
+    | <<  <  >  >> |  Add  |  Modify  |  Delete  |  Search  |  Print  |  Exit   | Total: ###
+    +--------------+-------+----------+----------+----------+---------+---------+
+
+
+    +---------------------------------------------------------------------------+
+    | @ Product                                                                 |
+    +---------------------------------------------------------------------------+
+    |  Manufacturer | Zero-Stock | Indent-Now | Alphabetical |                  |
+    +---------------------------------------------------------------------------+
+    |  ID  | PRODUCT-NAME                | MANUFACTURER-NAME    | PACKING       |
+    +---------------------------------------------------------------------------+
+    |DR-001| Norilet                     | Dr. Reddy            | 10 strip      |
+    |DR-002| Omniprazol                  | Dr. Reddy            | 10 strip      |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    |      |                             |                      |               |
+    +--------------+-------+----------+----------+----------+---------+---------+
+    | <<  <  >  >> |  Add  |  Modify  |  Delete  |  Search  |  Print  |  Exit   | Total: ###
+    +--------------+-------+----------+----------+----------+---------+---------+
+
+
+    +---------------------------------------------------------------------------+
+    | @ Stock-Transaction                                                       |
+    +---------------------------------------------------------------------------+
+    | Date:     ##-##-####                  Ref-No:    ................         |
+    | No:       ##########                  Customer:  |||||||||||||||||||||?   |
+    | Type:     ||||||||||||||||?           Balance:   <<<<<<<<>>>>>>>>>>       |
+    | Type-No:  ##########                  Last-Tran: <<<<<<<<>>>>>>>>>>       |
+    | Carrier:  xxxxxxxxxxxxxxxxxxxxxxxx
+    +---------------------------------------------------------------------------+
+    | PRODUCT-NAME        | PACK | BATCH-NO | EX-DT |  QTY | FREE | RATE | EX-AMT |  AMOUNT |
+    +---------------------------------------------------------------------------+
+    | 1 | Norilet 400     | 10-s | DX001    | 04/26 |  100 |   5  | 56.00 |   0.0 | 5600.00 |
+    | 2 |                 |      |          |       |      |      |       |       |         |
+    | 3 |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    |   |                 |      |          |       |      |      |       |       |         |
+    +--------------+----------+---------+---------+----------+---------+---------+
+    | <<  <  >  >> |  Search  |  Print  |  Exit   | Total: ###
+    +--------------+----------+---------+---------+----------+---------+---------+
+
+    GANTT CHART
+
+
+Group-1:
+    =   Manufacturer Maintenance
+        i)  Anwesha Mahapatra
+       ii)  Navneet Raj
+      iii)  Shubham Kumar
+       iv)  Shubhojit Bhattacharya
+        v)  Soumyajit Sinha
+       vi)  Suraj Dalai
+
+Group-2:
+    =   Product Maintenance
+        i)  Aditi Garnaik
+       ii)  Bhagyashree Maharana
+      iii)  Bhagyalaxmi Nayak
+
+Group-3:
+    =   Customer Maintenance
+        i)  Sasikanta Biswal
+       ii)  Sonu Sahoo
+      iii)  Subhalaxmi Mohapatra
+       iv)  Suvra Nayak
+        v)  Sadasiba Sahoo
+       vi)  Asit Ranjan Badia
+
+Group-4:
+    =   Vendor Maintenance
+        i)  Raju Biswal
+       ii)  Kamalakanta Beura
+      iii)  sibananda kuanar
+       iv)  Somya Ranjan Dash
+        v)  Tangudu Praveen Kumar
+       vi)  Himanshu Jha
+
+Group-5:
+    =   user Login
+        i)  Arup Kumar Patra
+       ii)  Ayush Mohanty
+      iii)  Dipanitwa parida
+       iv)  Chinmay jagadev Dash
+        v)  Pritismita Nayak
+       vi)  Rohan Das
+
+Group-6:
+    =   Companies Maintenance
+        i)  Dibyajyoti Mohapatra
+       ii)  Jayashree Kar
+      iii)  Harapriya Das
+       iv)  Nihareeka meher
+        v)  Sidhartha Das
+       vi)  Arti kumari
+
+Group-7:
+    =   Activities Maintenance
+        i)  Prabhu Kalyan Samal
+       ii)  Shubham Puhan
+      iii)  Rajeswari Dash
+       iv)  Sambit Ray
+        v)  Aman Kumar
+       vi)  Somanath Prusty
+
+Group-8:
+    =   Create User
+        i)  Abhijit Sahu
+       ii)  Prangya Paramita Sahoo 
+      iii)  Priyanka Priyadarshini Acharya 
+       iv)  Rasmi Ranjan Panda 
+        v)  Aditya Das
+       vi)  Biswarupa Nayak
+
+Group-9:
+    =   Assign Previleges
+        i)  Biswakalyan Jena 
+       ii)  Hulash Barik 
+      iii)  Karttik Nayak
+       iv)  Lalita Kumar Mohanty 
+        v)  Priyansu Ranjan Samantaray
+       vi)  Priyabrat Behera 
