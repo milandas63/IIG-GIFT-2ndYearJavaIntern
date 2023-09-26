@@ -4,12 +4,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
-public class RegistrationApp {
+public class Group_eight_project {
     private JFrame frame;
     private JTextField nameField, emailField, mobileField;
     private JPasswordField passwordField;
 
-    public RegistrationApp() {
+    public Group_eight_project() {
         frame = new JFrame("Registration App");
         frame.setLayout(new GridLayout(5, 2));
 
@@ -83,7 +83,7 @@ public class RegistrationApp {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new RegistrationApp();
+                new Group_eight_project();
             }
         });
     }
