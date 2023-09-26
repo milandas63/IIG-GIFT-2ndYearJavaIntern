@@ -1,0 +1,24 @@
+mysql> create database dokan;
+Query OK, 1 row affected (0.14 sec)
+
+mysql> use dokan;
+Database changed
+mysql> create table record(
+    -> serlno int(3),
+    -> name char(20),
+    -> product char(20),
+    -> price int(5),
+    -> address varchar(40));
+Query OK, 0 rows affected (2.03 sec)
+
+mysql> describe record;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| serlno  | int(3)      | YES  |     | NULL    |       |
+| name    | char(20)    | YES  |     | NULL    |       |
+| product | char(20)    | YES  |     | NULL    |       |
+| price   | int(5)      | YES  |     | NULL    |       |
+| address | varchar(40) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
