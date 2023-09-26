@@ -15,7 +15,7 @@ public class Group_eight_project {
     private JPasswordField passwordField;
     private JFrame loginFrame;
 
-    public RegistrationApp() {
+    public Group_eight_project() {
         initializeUI();
     }
 
@@ -221,7 +221,7 @@ public class Group_eight_project {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new RegistrationApp();
+                new Group_eight_project();
             }
         });
     }
